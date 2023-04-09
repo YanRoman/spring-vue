@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+  back:
+    image: back
+    container_name: back
+    build:
+      context: ./back
+    ports:
+      - "9080:9080"
+  front:
+    image: front
+    container_name: front
+    build:
+      context: ./front
+    ports:
+      - "8080:8080"
+    depends_on:
+      - back
